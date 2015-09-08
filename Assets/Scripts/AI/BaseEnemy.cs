@@ -24,23 +24,6 @@ public class BaseEnemy : MonoBehaviour
 
     }
 
-    public int HP
-    {
-        get{return hp}; set{hp = value};
-    }
-    public int MAXHP
-    {
-        get{return maxHp}; set{maxHp = value};
-    }
-    public int MoveSpeed
-    {
-        get{return moveSpeed}; set{moveSpeed = value};
-    }
-    public int AttackDamage
-    {
-        get{return attackDamage}; set{attackDamage = value};
-    }
-
     public void takeDamage(int damage)
     {
         hp -= damage;
