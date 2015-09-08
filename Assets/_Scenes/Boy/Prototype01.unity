@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 124898, guid: 1b241c8300090b34fb8ad9b8390e5cd3, type: 2}
   - {fileID: 124898, guid: 3b0697a80082bd64890ab92bd00da450, type: 2}
   itemPanel: {fileID: 771135693}
+  priceScale: 1
 --- !u!1 &151224991
 GameObject:
   m_ObjectHideFlags: 0
