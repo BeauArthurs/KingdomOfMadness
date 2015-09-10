@@ -6,7 +6,6 @@ public class PlayerScript : MonoBehaviour {
 	public float speed = 6f;            
 	
 	Vector3 movement;
-	Rigidbody playerRigidbody;
 	[SerializeField]
 	private float rotationSensitivity = 15f;
     private float yRotation = 0F;
@@ -14,7 +13,6 @@ public class PlayerScript : MonoBehaviour {
 	void Awake ()
 	{
 		originalBodyRotation = transform.localRotation;
-		playerRigidbody = GetComponent<Rigidbody> ();
 	}
 	void FixedUpdate () 
 	{
