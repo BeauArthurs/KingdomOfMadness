@@ -28,10 +28,10 @@ public class NPC_Inventory : MonoBehaviour {
 
             // Set Name
             name = tempItemPrefab.transform.FindChild(itemName).GetComponent<Text>();
-            name.text = current.GetComponent<Stats>().name.ToString();
+            name.text = current.GetComponent<ItemData>().name.ToString();
             // Set Price
             price = tempItemPrefab.transform.FindChild(itemPrice).GetComponent<Text>();
-            price.text = current.GetComponent<Stats>().price.ToString();
+            price.text = current.GetComponent<ItemData>().price.ToString();
 
         }
     }

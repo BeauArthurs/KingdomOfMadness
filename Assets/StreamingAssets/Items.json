@@ -1,0 +1,30 @@
+[
+  {
+    "id": 0,
+    "title": "Broadsword",
+    "value": 50,
+    "stats": {
+      "power": 1,
+      "defence": 4,
+      "vitality": 2
+    },
+    "description": "The worst sword you can possibly get.",
+    "stackable": false,
+    "rarity": 1,
+    "slug": "broadsword"
+  },
+  {
+    "id": 1,
+    "title": "Longsword",
+    "value": 100,
+    "stats": {
+      "power": 2,
+      "defence": 4,
+      "vitality": 2
+    },
+    "description": "The default sword used in combat.",
+    "stackable": false,
+    "rarity": 2,
+    "slug": "longsword"
+  }
+]
