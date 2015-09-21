@@ -12,4 +12,19 @@ public class Tools : MonoBehaviour {
     {
         Application.LoadLevel(scene);
     }
+
+    public void Drag(GameObject obj)
+    {
+        Vector3 startValue = Input.mousePosition;
+        obj.transform.position = Input.mousePosition;
+    }
+
+    public void Quit()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+		    Application.Quit();
+        #endif
+    }
 }
