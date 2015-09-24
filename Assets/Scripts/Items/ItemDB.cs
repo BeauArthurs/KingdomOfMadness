@@ -15,12 +15,12 @@ public class ItemDB : MonoBehaviour
         ConstructItemDB();
 
         //Debug.Log(_database[1].Power);
-        Debug.Log(FetchItemByID(1).Description);
+        Debug.Log(_database[1].Price);
     }
 
     public Item FetchItemByID(int id)
     {
-        for (int i = 0; i< _database.Count; i++)
+        for (int i = 0; i < _database.Count; i++)
             if (_database[i].ID == id)
                 return _database[i];
         return null;
@@ -40,7 +40,8 @@ public class ItemDB : MonoBehaviour
                 _itemData[i]["description"].ToString(),
                 (bool)_itemData[i]["stackable"],
                 (int)_itemData[i]["rarity"],
-                _itemData[i]["slug"].ToString()
+                _itemData[i]["slug"].ToString(),
+                (int)_itemData[i]["price"]
                 )
             );
         }
@@ -61,9 +62,10 @@ public class Item
     public bool Stackable { get; set; }
     public int Rarity { get; set; }
     public string Slug { get; set; }
+    public int Price { get; set; }
     public Sprite Sprite { get; set; }
 
-    public Item(int id, string title, int value, int power, int defence, int vitality, string description, bool stackable, int rarity, string slug)
+    public Item(int id, string title, int value, int power, int defence, int vitality, string description, bool stackable, int rarity, string slug, int price)
     {
         ID = id;
         Title = title;
@@ -75,6 +77,8 @@ public class Item
         Stackable = stackable;
         Rarity = rarity;
         Slug = slug;
+        Price = price;
+
         Sprite = Resources.Load<Sprite>("Sprites/Items/" + slug);
     }
 

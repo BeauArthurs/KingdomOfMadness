@@ -11,7 +11,8 @@
     "description": "The worst sword you can possibly get.",
     "stackable": false,
     "rarity": 1,
-    "slug": "broadsword"
+    "slug": "broadsword",
+    "price":  250
   },
   {
     "id": 1,
@@ -23,8 +24,9 @@
       "vitality": 2
     },
     "description": "The default sword used in combat.",
-    "stackable": false,
+    "stackable": true,
     "rarity": 2,
-    "slug": "longsword"
+    "slug": "longsword",
+    "price":  500
   }
 ]

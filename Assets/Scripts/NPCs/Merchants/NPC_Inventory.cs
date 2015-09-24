@@ -2,37 +2,47 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class NPC_Inventory : MonoBehaviour {
+public class NPC_Inventory : MonoBehaviour
+{
 
-    private const string itemName = "Item_Name";
-    private const string itemPrice = "Item_Price";
+    private const string ITEM_NAME  = "Item_Name";
+    private const string ITEM_PRICE = "Item_Price";
+    private const string ITEM_IMAGE = "Item_Image";
 
     [SerializeField] private GameObject itemPrefab;
-    [SerializeField] private GameObject[] items;
+    [SerializeField] private int[] _shopInventory;
     [SerializeField] private Transform itemPanel;
     [SerializeField] private float priceScale = 1f;
 
-    // On interaction(Start for now), load all items into the itemPrefabs.
+    private ItemDB _itemDB;
+
+    // On interaction (Start for now), load all items into the itemPrefabs.
 
     void Start()
     {
-        foreach (GameObject current in items)
+        _itemDB = GameObject.FindGameObjectWithTag("Inventory").GetComponent<ItemDB>();
+
+        foreach (int current in _shopInventory)
         {
-            GameObject tempItemPrefab;
+            GameObject itemSlotPrefab;
             Text name;
             Text price;
+            Image image;
+            Item tempItem = _itemDB.FetchItemByID(current);
 
-            // Instatiate prefab
-            tempItemPrefab = Instantiate(itemPrefab);
-            tempItemPrefab.transform.SetParent(itemPanel, false);
+            // Instatiate slot prefab
+            itemSlotPrefab = Instantiate(itemPrefab);
+            itemSlotPrefab.transform.SetParent(itemPanel, false);
 
             // Set Name
-            name = tempItemPrefab.transform.FindChild(itemName).GetComponent<Text>();
-            name.text = current.GetComponent<ItemData>().name.ToString();
+            name = itemSlotPrefab.transform.FindChild(ITEM_NAME).GetComponent<Text>();
+            name.text = tempItem.Title;
             // Set Price
-            price = tempItemPrefab.transform.FindChild(itemPrice).GetComponent<Text>();
-            price.text = current.GetComponent<ItemData>().price.ToString();
-
+            price = itemSlotPrefab.transform.FindChild(ITEM_PRICE).GetComponent<Text>();
+            price.text = tempItem.Price.ToString();
+            // Set Image
+            image = itemSlotPrefab.transform.FindChild(ITEM_IMAGE).GetComponent<Image>();
+            image.sprite = tempItem.Sprite;
         }
     }
 

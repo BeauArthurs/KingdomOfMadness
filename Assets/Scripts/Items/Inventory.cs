@@ -31,10 +31,7 @@ public class Inventory : MonoBehaviour
 
 
         AddItem(0);
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
+        AddItem(0);
         AddItem(1);
         AddItem(1);
         AddItem(1);
@@ -44,11 +41,12 @@ public class Inventory : MonoBehaviour
     {
         Item itemToAdd = _itemDB.FetchItemByID(id);
 
-        // Check if it's stackable
+        // Check if it's stackable and already exists
         if (itemToAdd.Stackable && IsInInventory(itemToAdd)) 
         {
             for (int i = 0; i < items.Count; i++) 
             {
+                // Find the stack
                 if (items[i].ID == id) 
                 {
                     // Increase stack amount by 1
@@ -58,15 +56,17 @@ public class Inventory : MonoBehaviour
                     break;
                 }
             }
-        } 
-        else 
+        }
+        else
         {
             for (int i = 0; i < items.Count; i++)
             {
+                // Look for an empty slot
                 if(items[i].ID == -1)
                 {
                     items[i] = itemToAdd;
                     GameObject itemObj = Instantiate(inventoryItem);
+                    itemObj.GetComponent<ItemData>().item = itemToAdd;
                     itemObj.transform.SetParent(slots[i].transform, false);
                     itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
                     itemObj.name = items[i].Title;

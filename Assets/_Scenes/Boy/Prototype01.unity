@@ -172,12 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 175972, guid: 800953404c64a724f9def12deffb8b42, type: 2}
-  items:
-  - {fileID: 124898, guid: 7e401fd5d589a7d469dba7e55e696c01, type: 2}
-  - {fileID: 124898, guid: 1411503e74b865247b3abae99ea69951, type: 2}
-  - {fileID: 124898, guid: d19b417dd89a2b0438988d82c5344cb6, type: 2}
-  - {fileID: 124898, guid: d365f347e51a3f743a65b08872aa4df9, type: 2}
-  - {fileID: 124898, guid: 617d2dda8cab5fc4cbbe9d9303de0ceb, type: 2}
+  _shopInventory: 0000000001000000010000000100000000000000
   itemPanel: {fileID: 771135693}
   priceScale: 1
 --- !u!114 &67255394
@@ -429,7 +424,7 @@ MonoBehaviour:
         m_MethodName: ToggleActive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2078905005}
+          m_ObjectArgument: {fileID: 1205749724}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -564,7 +559,7 @@ GameObject:
   - 114: {fileID: 270942264}
   m_Layer: 0
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
