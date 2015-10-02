@@ -2,8 +2,14 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler 
-{
+// Boy Voesten
+
+    // TODO:
+    //  Actually move the items, back-end wise (Putting the item into another 'slot' prefab)
+    //  Data tooltip on hover
+
+public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler {
+
     public Item item;
     public int amount = 1;
 
@@ -38,8 +44,10 @@ public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData) 
     {
-        if (item != null) {
+        if (item != null)
+        {
             transform.SetParent(_originalParent);
+            transform.position = _originalParent.transform.position;
         }
         //throw new System.NotImplementedException();
     }

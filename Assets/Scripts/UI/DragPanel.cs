@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 
-// With the help of a lot of google
+// Boy Voesten
+// (With the help of a lot of google)
 
 public class DragPanel : MonoBehaviour, IPointerDownHandler, IDragHandler
 {

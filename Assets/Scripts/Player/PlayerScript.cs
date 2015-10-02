@@ -10,7 +10,7 @@ public class PlayerScript : BaseCharacter {
 
 	private Quaternion targetRotation;
 	private int turningRate = 200;
-	private UIScript ui;
+
 	void FixedUpdate ()
 	{
 		float h = Input.GetAxisRaw ("Horizontal");

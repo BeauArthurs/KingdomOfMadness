@@ -3,38 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
+// Boy Voesten
+
+    // TODO:
+    //  - A lot
+
 public class Inventory : MonoBehaviour
 {
     private GameObject _inventoryPanel;
     private GameObject _slotPanel;
     private ItemDB _itemDB;
+    [SerializeField] private GameObject _UIManager;
     public GameObject inventorySlot;
     public GameObject inventoryItem;
-
-    private int _slotAmount;
     public List<Item> items = new List<Item>();
     public List<GameObject> slots = new List<GameObject>();
+
+    private int _slotAmount = 21;
 
     void Start()
     {
         _itemDB = GetComponent<ItemDB>();
 
-        _slotAmount = 21;
+        // Instantiate all the slots in the inventory
+        SpawnSlots(_slotAmount);
+        
+        // Add some items to the inventory test it
+        AddItem(0);
+        AddItem(0);
+        AddItem(1);
+        AddItem(1);
+        AddItem(2);
+        AddItem(3);
+
+        // Hide UI after done doing all the loading
+        _UIManager.GetComponent<Tools>().ToggleUIMode();
+    }
+
+    private void SpawnSlots(int amount)
+    {
         _inventoryPanel = GameObject.Find("InventoryPanel");
         _slotPanel = _inventoryPanel.transform.FindChild("SlotPanel").gameObject;
-        for(int i = 0; i < _slotAmount; i++)
+
+        for (int i = 0; i < amount; i++)
         {
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
             slots[i].transform.SetParent(_slotPanel.transform, false);
         }
-
-
-        AddItem(0);
-        AddItem(0);
-        AddItem(1);
-        AddItem(1);
-        AddItem(1);
     }
     
     public void AddItem(int id)
@@ -80,7 +96,8 @@ public class Inventory : MonoBehaviour
     }
 
     // Check if item already exists in inventory
-    bool IsInInventory(Item item) {
+    bool IsInInventory(Item item) 
+    {
         for (int i = 0; i < items.Count; i++) 
         {
             if (items[i].ID == item.ID)

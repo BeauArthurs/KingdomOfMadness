@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Interaction : MonoBehaviour
-{
+// Boy Voesten
+
+public class Interaction : MonoBehaviour {
 
     private float _maxDistance = 5f;
     private int _layerMask = 1 << 8;
