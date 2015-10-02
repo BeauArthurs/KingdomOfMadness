@@ -7,9 +7,9 @@ public class PlayerScript : BaseCharacter {
 	private Vector3 movement;
 	private Quaternion tempY;
 
-
 	private Quaternion targetRotation;
-	private int turningRate = 400;
+	private int turningRate = 200;
+
 	void FixedUpdate ()
 	{
 		float h = Input.GetAxisRaw ("Horizontal");
