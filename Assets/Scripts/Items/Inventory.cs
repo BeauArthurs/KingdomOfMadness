@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 // Boy Voesten
 
-    // TODO:
-    //  - A lot
+// TODO:
+//  - A lot
 
 public class Inventory : MonoBehaviour
 {
     private GameObject _inventoryPanel;
     private GameObject _slotPanel;
     private ItemDB _itemDB;
-    [SerializeField] private GameObject _UIManager;
+    [SerializeField]
+    private GameObject _UIManager;
     public GameObject inventorySlot;
     public GameObject inventoryItem;
     public List<Item> items = new List<Item>();
@@ -27,7 +28,7 @@ public class Inventory : MonoBehaviour
 
         // Instantiate all the slots in the inventory
         SpawnSlots(_slotAmount);
-        
+
         // Add some items to the inventory test it
         AddItem(0);
         AddItem(0);
@@ -49,21 +50,22 @@ public class Inventory : MonoBehaviour
         {
             items.Add(new Item());
             slots.Add(Instantiate(inventorySlot));
+            slots[i].GetComponent<InvSlot>().id = i;
             slots[i].transform.SetParent(_slotPanel.transform, false);
         }
     }
-    
+
     public void AddItem(int id)
     {
         Item itemToAdd = _itemDB.FetchItemByID(id);
 
         // Check if it's stackable and already exists
-        if (itemToAdd.Stackable && IsInInventory(itemToAdd)) 
+        if (itemToAdd.Stackable && IsInInventory(itemToAdd))
         {
-            for (int i = 0; i < items.Count; i++) 
+            for (int i = 0; i < items.Count; i++)
             {
                 // Find the stack
-                if (items[i].ID == id) 
+                if (items[i].ID == id)
                 {
                     // Increase stack amount by 1
                     ItemData data = slots[i].transform.GetChild(0).GetComponent<ItemData>();
@@ -78,11 +80,14 @@ public class Inventory : MonoBehaviour
             for (int i = 0; i < items.Count; i++)
             {
                 // Look for an empty slot
-                if(items[i].ID == -1)
+                if (items[i].ID == -1)
                 {
-                    items[i] = itemToAdd;
                     GameObject itemObj = Instantiate(inventoryItem);
-                    itemObj.GetComponent<ItemData>().item = itemToAdd;
+                    ItemData itemObjData = itemObj.GetComponent<ItemData>();
+
+                    items[i] = itemToAdd;
+                    itemObjData.item = itemToAdd;
+                    itemObjData.slotID = i;
                     itemObj.transform.SetParent(slots[i].transform, false);
                     itemObj.GetComponent<Image>().sprite = itemToAdd.Sprite;
                     itemObj.name = items[i].Title;
@@ -92,13 +97,13 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        
+
     }
 
     // Check if item already exists in inventory
-    bool IsInInventory(Item item) 
+    bool IsInInventory(Item item)
     {
-        for (int i = 0; i < items.Count; i++) 
+        for (int i = 0; i < items.Count; i++)
         {
             if (items[i].ID == item.ID)
                 return true;

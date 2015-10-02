@@ -3,13 +3,14 @@ using System.Collections;
 
 // Boy Voesten
 
-    // TODO:
-    //  Fix the ToggleActive to work with the UIActive correctly
-    //  Save what panels were open when you toggle the UI mode
+// TODO:
+//  Save what panels were open when you toggle the UI mode
 
-public class Tools : MonoBehaviour {
+public class Tools : MonoBehaviour
+{
 
-    [SerializeField] private GameObject[] _UIPanels;
+    [SerializeField]
+    private GameObject[] _UIPanels;
     private bool _UIActive = true;
     private int _activePanels = 0;
 
@@ -19,7 +20,7 @@ public class Tools : MonoBehaviour {
         {
             ToggleUIMode();
         }
-        if (Input.GetKeyDown(KeyCode.I)) 
+        if (Input.GetKeyDown(KeyCode.I))
         {
             ToggleActive(_UIPanels[0]);
         }
@@ -52,23 +53,23 @@ public class Tools : MonoBehaviour {
         Debug.Log("UI is now " + _UIActive);
     }
 
-	public void ToggleActive(GameObject obj)
+    public void ToggleActive(GameObject obj)
     {
         Debug.Log("ToggleActive: " + obj.name);
-        if (!obj.activeSelf) 
+        if (!obj.activeSelf)
         {
             obj.SetActive(true);
             _activePanels++;
-            if (!_UIActive) 
+            if (!_UIActive)
             {
                 ToggleUIMode();
             }
-        } 
-        else if (obj.activeSelf) 
+        }
+        else if (obj.activeSelf)
         {
             obj.SetActive(false);
             _activePanels--;
-            if (_UIActive && _activePanels <= 0) 
+            if (_UIActive && _activePanels <= 0)
             {
                 ToggleUIMode();
             }
