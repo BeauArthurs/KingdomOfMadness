@@ -8,6 +8,7 @@ TagManager:
   - Name
   - Image
   - Ground
+  - AI
   layers:
   - Default
   - TransparentFX

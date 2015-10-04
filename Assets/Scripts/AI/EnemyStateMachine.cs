@@ -1,0 +1,70 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyStateMachine : MonoBehaviour
+{
+
+    enum States { attack, flee }
+    private States _currentState = States.attack;
+    private int _moveSpeed = 1;
+    private int _attackRange = 1;
+    private MovementAI _movementScript;
+    private MovementData _myMoveData;
+    public GameObject target;
+    private MovementData _targetMoveData;
+    private int _maxHp = 100;
+    [SerializeField]
+    private int _currentHp;
+    private bool _canExplode = true;
+
+    // Use this for initialization
+    void Awake()
+    {
+        _movementScript = GameObject.FindGameObjectWithTag("AI").GetComponent<MovementAI>();
+        _myMoveData = GetComponent<MovementData>();
+        _targetMoveData = target.GetComponent<MovementData>();
+        _myMoveData.position = transform.position;
+        _currentHp = _maxHp;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (_currentState)
+        {
+            case States.attack:
+                //attack logic
+                if (_currentHp <= _maxHp / 2 && _canExplode)
+                {
+                    Debug.Log("BOOM");
+                    _canExplode = false;
+
+                    //hp is low start running away turn this on if there are ways to heal 
+                    //_currentState = States.flee;
+                }
+                else if (_movementScript.seek(_targetMoveData, _myMoveData).magnitude <= _attackRange)
+                {
+                    Debug.Log("attacking");
+                }
+                else
+                {
+                    Debug.Log("move closer");
+                    _movementScript.chase(_targetMoveData, _myMoveData, _moveSpeed);
+                    move();
+                }
+                break;
+            case States.flee:
+                //flee logic
+                Debug.Log("run away");
+                _movementScript.flee(_targetMoveData, _myMoveData, _moveSpeed);
+                move();
+                break;
+        }
+    }
+
+    void move()
+    {
+        transform.Translate(_myMoveData.velocity);
+        _myMoveData.position = transform.position;
+    }
+}
