@@ -1,0 +1,72 @@
+// NOTE: Stats & Weight are divided by 10 in the ItemDB
+
+[
+  {
+    "id": 0,
+    "title": "Broadsword",
+    "description": "The Broadsword has a two-edged blade measuring 2-3 inches wide at the base which tapered to a point.",
+    "price": 100,
+    "type": "sword",
+    "wieldingstyle": "One-Handed",
+    "stats": {
+      "damage": 125,
+      "speed": 20,
+      "critchance": 15
+    },
+    "weight": 11,
+    "stackable": false,
+    "rarity": 3,
+    "slug": "broadsword"
+  },
+  {
+    "id": 1,
+    "title": "Claymore",
+    "description": "The Claymore is a particularly effective and feared two-handed weapon that is large yet light for its type.",
+    "price": 250,
+    "type": "sword",
+    "wieldingstyle": "Two-Handed",
+    "stats": {
+      "damage": 200,
+      "speed": 15,
+      "critchance": 50
+    },
+    "weight": 25,
+    "stackable": false,
+    "rarity": 3,
+    "slug": "claymore"
+  },
+  {
+    "id": 2,
+    "title": "Viking Axe",
+    "description": "The axe was often the choice of the poorest man in the Viking age.",
+    "price": 150,
+    "type": "axe",
+    "wieldingstyle": "One-Handed",
+    "stats": {
+      "damage": 70,
+      "speed": 30,
+      "critchance": 30
+    },
+    "weight": 10,
+    "stackable": false,
+    "rarity": 3,
+    "slug": "vikingaxe"
+  },
+  {
+    "id": 3,
+    "title": "Battle Axe",
+    "description": "As a lethally brutal instrument of destruction and battle, the axe excels.",
+    "price": 400,
+    "type": "axe",
+    "wieldingstyle": "Two-Handed",
+    "stats": {
+      "damage": 200,
+      "speed": 175,
+      "critchance": 50
+    },
+    "weight": 20,
+    "stackable": false,
+    "rarity": 2,
+    "slug": "battleaxe"
+  }
+]

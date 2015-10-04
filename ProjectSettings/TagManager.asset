@@ -8,7 +8,13 @@ TagManager:
   - Name
   - Image
   - Ground
+<<<<<<< HEAD
   - AI
+=======
+  - Inventory
+  - UIManager
+  - sword
+>>>>>>> f136fedbf3d2dc57ad69694d75489fa4db2931c3
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Interactible
   - 
   - 
   - 
