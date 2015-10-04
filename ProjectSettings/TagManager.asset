@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Inventory
   - UIManager
+  - sword
   layers:
   - Default
   - TransparentFX
