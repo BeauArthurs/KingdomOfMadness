@@ -11,7 +11,7 @@ public class AITestTarget : MonoBehaviour
         movementScript = GameObject.FindGameObjectWithTag("AI").GetComponent<MovementAI>();
         myMoveData = GetComponent<MovementData>();
         myMoveData.position = transform.position;
-        myMoveData.velocity = new Vector3(0,0,0);
+        myMoveData.velocity = new Vector3(1,0,0);
     }
 
     // Update is called once per frame

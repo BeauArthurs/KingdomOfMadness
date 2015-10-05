@@ -6,8 +6,9 @@ public class EnemyStateMachine : MonoBehaviour
 
     enum States { attack, flee }
     private States _currentState = States.attack;
-    private int _moveSpeed = 1;
-    private int _attackRange = 1;
+    [SerializeField]
+    private float _moveSpeed = 1;
+    private float _attackRange = 1;
     private MovementAI _movementScript;
     private MovementData _myMoveData;
     public GameObject target;
@@ -66,5 +67,14 @@ public class EnemyStateMachine : MonoBehaviour
     {
         transform.Translate(_myMoveData.velocity);
         _myMoveData.position = transform.position;
+    }
+
+    public void takeDamage(int damage)
+    {
+        _currentHp -= damage;
+        if (_currentHp <= 0)
+        {
+            Destroy(this.gameObject);
+;       }
     }
 }
