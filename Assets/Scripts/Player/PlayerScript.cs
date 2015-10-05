@@ -8,7 +8,7 @@ public class PlayerScript : BaseCharacter {
 	private Quaternion tempY;
 
 	private Quaternion targetRotation;
-	private int turningRate = 200;
+	private int turningRate = 600;
 
 	void FixedUpdate ()
 	{
