@@ -9,7 +9,7 @@ public class BaseCharacter  : MonoBehaviour
     [SerializeField]
     protected int maxHp;
     [SerializeField]
-    protected int moveSpeed;
+    protected float moveSpeed;
     [SerializeField]
     protected int attackDamage;
     [SerializeField]

@@ -21,7 +21,6 @@ public class BaseEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public int HP

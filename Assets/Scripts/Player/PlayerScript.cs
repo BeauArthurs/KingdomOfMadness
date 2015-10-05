@@ -7,25 +7,32 @@ public class PlayerScript : BaseCharacter {
 	private Vector3 movement;
 	private Quaternion tempY;
 
-	private Quaternion targetRotation;
+    private MovementData _moveData;
+    private Quaternion targetRotation;
 	private int turningRate = 600;
+
+    void Start()
+    {
+        _moveData = GetComponent<MovementData>();
+    }
 
 	void FixedUpdate ()
 	{
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
+        _moveData.position = this.transform.position;
+        float h = Input.GetAxis ("Horizontal");
+		float v = Input.GetAxis ("Vertical");
 		if (h != 0 || v != 0) {
 			movement.Set (h, 0f, v);
 			movement = transform.TransformDirection (movement);
 
-			body.MovePosition (transform.position + movement * Time.deltaTime * moveSpeed);
-			transform.rotation = Quaternion.RotateTowards (transform.rotation, targetRotation, turningRate * Time.deltaTime);
+            body.MovePosition (transform.position + movement * Time.deltaTime * moveSpeed);
             anime.SetBool("Moving", false);
         }
         else
         {
             anime.SetBool("Moving", true);
         }
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turningRate * Time.deltaTime);
         anime.SetFloat("DirX", h);
         anime.SetFloat("DirY", v);
         if (Input.GetAxis("Jump") > 0 && jumping == false)
