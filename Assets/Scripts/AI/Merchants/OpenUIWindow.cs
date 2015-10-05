@@ -10,7 +10,7 @@ public class OpenUIWindow : Interactible {
     private Tools _UIManager;
 
     void Start() {
-        _UIManager = GameObject.FindGameObjectWithTag(TagList.UIManager).GetComponent<Tools>() ;
+        _UIManager = GameObject.FindGameObjectWithTag(TagList.UIManager).GetComponent<Tools>();
     }
 
     public override void Interact()

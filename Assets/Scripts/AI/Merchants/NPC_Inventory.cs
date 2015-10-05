@@ -7,7 +7,7 @@ using UnityEngine.UI;
     // TODO:
     //  Improve the way I add items into the inventory
 
-public class NPC_Inventory : MonoBehaviour {
+public class NPC_Inventory : Interactible {
 
     [SerializeField] private GameObject itemPrefab;
     [SerializeField] private int[] _shopInventory;
@@ -17,13 +17,15 @@ public class NPC_Inventory : MonoBehaviour {
     private ItemDB _itemDB;
     private Inventory _inventory;
 
-    // On interaction (Start for now), load all items into the itemPrefabs.
-
     void Start()
     {
         _itemDB = GameObject.FindGameObjectWithTag(TagList.Inventory).GetComponent<ItemDB>();
         _inventory = GameObject.FindGameObjectWithTag(TagList.Inventory).GetComponent<Inventory>();
+    }
 
+    // On interaction load all items into the itemPrefabs.
+    public override void Interact()
+    {
         foreach (int current in _shopInventory)
         {
             GameObject itemSlotPrefab;
@@ -51,6 +53,9 @@ public class NPC_Inventory : MonoBehaviour {
             shopItem.item = tempItem;
             shopItem.npc = this;
         }
+
+        // After everything is loaded, set the UI panel Active
+        GetComponent<OpenUIWindow>().Interact();
     }
 
     public void BuyItem(int id)
