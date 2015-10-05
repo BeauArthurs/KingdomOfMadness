@@ -12,6 +12,10 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+
+    private const string INV_PANEL = "InventoryPanel";
+    private const string SLOT_PANEL = "SlotPanel";
+
     private GameObject _inventoryPanel;
     private GameObject _slotPanel;
     private ItemDB _itemDB;
@@ -47,8 +51,8 @@ public class Inventory : MonoBehaviour
 
     private void SpawnSlots(int amount)
     {
-        _inventoryPanel = GameObject.Find("InventoryPanel");
-        _slotPanel = _inventoryPanel.transform.FindChild("SlotPanel").gameObject;
+        _inventoryPanel = GameObject.Find(INV_PANEL);
+        _slotPanel = _inventoryPanel.transform.FindChild(SLOT_PANEL).gameObject;
 
         for (int i = 0; i < amount; i++)
         {
@@ -103,6 +107,7 @@ public class Inventory : MonoBehaviour
         else
         {
             Debug.Log("- Inventory full -");
+            // It should return something
         }
     }
 

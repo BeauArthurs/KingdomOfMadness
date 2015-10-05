@@ -961,7 +961,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &270942264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,6 +1558,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11462116, guid: 5b506c45851c0d24ebbb667ae4eb75cf, type: 2}
+      propertyPath: _UIManager
+      value: 
+      objectReference: {fileID: 1733835536}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b506c45851c0d24ebbb667ae4eb75cf, type: 2}
   m_IsPrefabParent: 0
@@ -3613,7 +3617,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!1 &1769286788
 GameObject:
   m_ObjectHideFlags: 0

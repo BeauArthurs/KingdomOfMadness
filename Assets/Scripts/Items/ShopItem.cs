@@ -14,7 +14,7 @@ public class ShopItem : MonoBehaviour, IPointerClickHandler
     public Item item;
     public NPC_Inventory npc;
 
-    // Buy item function, will be moved over to the NPC later on.
+    // When the player clicks on the item he wants to buy
     void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
     {
         npc.BuyItem(item.ID);

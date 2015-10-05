@@ -58,8 +58,10 @@ public class NPC_Inventory : Interactible {
         GetComponent<OpenUIWindow>().Interact();
     }
 
+    // Check if player can buy said item
     public void BuyItem(int id)
     {
+
         Debug.Log("Purchased itemID: [" + id + "]");
         _inventory.AddItem(id);
     }

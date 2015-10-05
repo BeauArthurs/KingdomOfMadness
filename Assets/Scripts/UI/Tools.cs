@@ -17,6 +17,8 @@ public class Tools : MonoBehaviour
     private bool _UIActive = true;
     private int _activePanels = 0;
 
+    public bool UIActive { get { return _UIActive; } }
+
     // Detect the inputs
     void Update()
     {

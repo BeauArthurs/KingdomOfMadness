@@ -58,6 +58,5 @@ public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             transform.position = _inv.slots[slotID].transform.position;
         }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        //throw new System.NotImplementedException();
     }
 }
