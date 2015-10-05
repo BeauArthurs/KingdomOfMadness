@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 // Boy Voesten
 
-    // TODO:
-    //  Improve the way I add items into the inventory
+// TODO:
+//  Improve the way I add items into the inventory
 
 public class NPC_Inventory : Interactible {
 

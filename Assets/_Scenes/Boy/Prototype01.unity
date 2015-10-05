@@ -974,8 +974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIManager: {fileID: 1733835535}
-  inventorySlot: {fileID: 142028, guid: 4bd12df52a91673428c2fa438e0bd81d, type: 2}
-  inventoryItem: {fileID: 162774, guid: c91b2c2e87568b843af62e48396a4550, type: 2}
+  emptyInvSlot: {fileID: 142028, guid: 4bd12df52a91673428c2fa438e0bd81d, type: 2}
+  emptyInvItem: {fileID: 162774, guid: c91b2c2e87568b843af62e48396a4550, type: 2}
   slots: []
 --- !u!1 &271235481
 GameObject:
@@ -1745,7 +1745,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
-  m_Intensity: 1.25
+  m_Intensity: 1.36000001
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10

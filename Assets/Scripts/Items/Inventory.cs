@@ -6,7 +6,9 @@ using UnityEngine.UI;
 // Boy Voesten
 
 // TODO:
-//  - A lot
+//  Make the items equipable
+//  Add some kind of currency
+//  Don't allow the player to buy if inventory is full
 
 public class Inventory : MonoBehaviour
 {
@@ -15,8 +17,8 @@ public class Inventory : MonoBehaviour
     private ItemDB _itemDB;
     [SerializeField]
     private GameObject _UIManager;
-    public GameObject inventorySlot;
-    public GameObject inventoryItem;
+    public GameObject emptyInvSlot;
+    public GameObject emptyInvItem;
     public List<Item> items = new List<Item>();
     public List<GameObject> slots = new List<GameObject>();
 
@@ -31,11 +33,13 @@ public class Inventory : MonoBehaviour
 
         // Add some items to the inventory test it
         AddItem(0);
-        AddItem(0);
-        AddItem(1);
-        AddItem(1);
         AddItem(2);
+        AddItem(1);
         AddItem(3);
+        AddItem(2);
+        AddItem(0);
+        AddItem(3);
+        AddItem(1);
 
         // Hide UI after done doing all the loading
         _UIManager.GetComponent<Tools>().ToggleUIMode();
@@ -49,7 +53,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             items.Add(new Item());
-            slots.Add(Instantiate(inventorySlot));
+            slots.Add(Instantiate(emptyInvSlot));
             slots[i].GetComponent<InvSlot>().id = i;
             slots[i].transform.SetParent(_slotPanel.transform, false);
         }
@@ -75,14 +79,14 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        else
+        else if (SpaceInInventory())
         {
             for (int i = 0; i < items.Count; i++)
             {
-                // Look for an empty slot
+                // Get the first empty item in the list
                 if (items[i].ID == -1)
                 {
-                    GameObject itemObj = Instantiate(inventoryItem);
+                    GameObject itemObj = Instantiate(emptyInvItem);
                     ItemData itemObjData = itemObj.GetComponent<ItemData>();
 
                     items[i] = itemToAdd;
@@ -96,8 +100,24 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            Debug.Log("- Inventory full -");
+        }
+    }
 
-
+    bool SpaceInInventory()
+    {
+        int amount = 0;
+        foreach (Item item in items)
+        {
+            if (item.ID != -1)
+            {
+                amount++;
+            }
+        }
+        Debug.Log(amount);
+        return (amount < _slotAmount);
     }
 
     // Check if item already exists in inventory
