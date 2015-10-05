@@ -844,6 +844,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &172618
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 476410}
+  - 33: {fileID: 3359158}
+  - 65: {fileID: 6503174}
+  - 23: {fileID: 2387652}
+  m_Layer: 0
+  m_Name: sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &175050
 GameObject:
   m_ObjectHideFlags: 1
@@ -1245,11 +1263,12 @@ Transform:
   m_LocalPosition: {x: -.106418982, y: -.000301008229, z: -.0137349321}
   m_LocalScale: {x: 1, y: .99999994, z: .99999994}
   m_Children:
+  - {fileID: 476410}
   - {fileID: 487896}
   - {fileID: 455348}
+  - {fileID: 487978}
   - {fileID: 434314}
   - {fileID: 459480}
-  - {fileID: 487978}
   m_Father: {fileID: 427892}
   m_RootOrder: 0
 --- !u!4 &422282
@@ -1380,7 +1399,7 @@ Transform:
   m_Children:
   - {fileID: 423488}
   m_Father: {fileID: 422074}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!4 &435018
 Transform:
   m_ObjectHideFlags: 1
@@ -1587,7 +1606,7 @@ Transform:
   m_Children:
   - {fileID: 404390}
   m_Father: {fileID: 422074}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &456350
 Transform:
   m_ObjectHideFlags: 1
@@ -1626,7 +1645,7 @@ Transform:
   m_Children:
   - {fileID: 402654}
   m_Father: {fileID: 422074}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!4 &459706
 Transform:
   m_ObjectHideFlags: 1
@@ -1730,6 +1749,18 @@ Transform:
   - {fileID: 431462}
   m_Father: {fileID: 414610}
   m_RootOrder: 0
+--- !u!4 &476410
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172618}
+  m_LocalRotation: {x: .159397036, y: .477395624, z: -.482502878, w: -.716852188}
+  m_LocalPosition: {x: -.110034414, y: .0690773278, z: -.123176366}
+  m_LocalScale: {x: .0399999805, y: .399999768, z: .0399999879}
+  m_Children: []
+  m_Father: {fileID: 422074}
+  m_RootOrder: 0
 --- !u!4 &479298
 Transform:
   m_ObjectHideFlags: 1
@@ -1832,7 +1863,7 @@ Transform:
   m_Children:
   - {fileID: 482416}
   m_Father: {fileID: 422074}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &487978
 Transform:
   m_ObjectHideFlags: 1
@@ -1845,7 +1876,7 @@ Transform:
   m_Children:
   - {fileID: 498576}
   m_Father: {fileID: 422074}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &490420
 Transform:
   m_ObjectHideFlags: 1
@@ -1936,6 +1967,37 @@ Transform:
   - {fileID: 479298}
   m_Father: {fileID: 498576}
   m_RootOrder: 0
+--- !u!23 &2387652
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172618}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3359158
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172618}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5472140
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -1951,6 +2013,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &6503174
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9560180
 Animator:
   serializedVersion: 3
@@ -1983,7 +2057,7 @@ MonoBehaviour:
   maxHp: 0
   moveSpeed: 20
   attackDamage: 0
-  JumpForce: 300
+  JumpForce: 500
   jumping: 0
 --- !u!136 &13611106
 CapsuleCollider:

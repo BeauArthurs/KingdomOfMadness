@@ -63,5 +63,9 @@ public class BaseCharacter  : MonoBehaviour
 		{
 			jumping = false;
 		}
+        if(other.gameObject.tag == "sword")
+        {
+            takeDamage(10);
+        }
 	}
 }

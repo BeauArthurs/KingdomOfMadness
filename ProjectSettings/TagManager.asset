@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Price
-  - Name
-  - Image
-  - Ground
-  - Inventory
-  - UIManager
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -19,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - Interactible
+  - 
   - 
   - 
   - 
