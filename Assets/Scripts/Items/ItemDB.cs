@@ -32,19 +32,6 @@ public class ItemDB : MonoBehaviour
     {
         for (int i = 0; i < _itemData.Count; i++)
         {
-            /*
-            Debug.Log((int)_itemData[i]["id"]);
-            Debug.Log(_itemData[i]["title"]);
-            Debug.Log(_itemData[i]["description"]);
-            Debug.Log((int)_itemData[i]["price"]);
-            Debug.Log(_itemData[i]["type"]);
-            Debug.Log(_itemData[i]["wieldingstyle"]);
-            Debug.Log((int)_itemData[i]["stats"]["damage"]/10f);
-            Debug.Log((float)_itemData[i]["stats"]["speed"]);
-            Debug.Log((float)_itemData[i]["stats"]["critchance"]);
-            Debug.Log((float)_itemData[i]["weight"]);
-            */
-            
             _database.Add(new Item(
                     (int)_itemData[i]["id"], 
                     _itemData[i]["title"].ToString(),

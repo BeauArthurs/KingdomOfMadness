@@ -5,15 +5,21 @@ using System.Collections;
 
 // TODO:
 //  Save what panels were open when you toggle the UI mode
+//  Get a better way to save all the panels in the Array
 
 public class Tools : MonoBehaviour
 {
+
+    private const string ITEM_PANEL = "ItemPanel";
 
     [SerializeField]
     private GameObject[] _UIPanels;
     private bool _UIActive = true;
     private int _activePanels = 0;
 
+    public bool UIActive { get { return _UIActive; } }
+
+    // Detect the inputs
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
@@ -26,33 +32,32 @@ public class Tools : MonoBehaviour
         }
     }
 
+    // Toggle between 'UI modes'
     public void ToggleUIMode()
     {
         if (_UIActive)
         {
-            Debug.Log("Lock cursor");
-            Screen.lockCursor = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            LockCursor(true);
 
             foreach (GameObject panel in _UIPanels)
             {
                 panel.SetActive(false);
             }
+
+            ClearPanel(_UIPanels[1].transform.FindChild(ITEM_PANEL));
             _activePanels = 0;
             _UIActive = false;
         }
         else
         {
-            Debug.Log("Unlock cursor");
-            Screen.lockCursor = false;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            LockCursor(false);
             _UIActive = true;
         }
+
         Debug.Log("UI is now " + _UIActive);
     }
 
+    // Toggle UI panels between active and inactive
     public void ToggleActive(GameObject obj)
     {
         Debug.Log("ToggleActive: " + obj.name);
@@ -67,12 +72,44 @@ public class Tools : MonoBehaviour
         }
         else if (obj.activeSelf)
         {
+            if (obj == _UIPanels[1])
+            {
+                ClearPanel(_UIPanels[1].transform.FindChild(ITEM_PANEL));
+            }
             obj.SetActive(false);
             _activePanels--;
             if (_UIActive && _activePanels <= 0)
             {
                 ToggleUIMode();
             }
+        }
+    }
+
+    // Unlock/lock the mouse cursor
+    void LockCursor(bool setLocked)
+    {
+        if (setLocked)
+        {
+            Debug.Log("Lock Cursor");
+            Screen.lockCursor = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Debug.Log("Unlock Cursor");
+            Screen.lockCursor = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    // Clear everything from given Transform, useful for re-using certain panels
+    void ClearPanel(Transform panel)
+    {
+        foreach (Transform item in panel)
+        {
+            Destroy(item.gameObject);
         }
     }
 

@@ -10,5 +10,6 @@ public class TagList : MonoBehaviour {
     public const string ItemName    = "Item_Name";
     public const string ItemPrice   = "Item_Price";
     public const string ItemImage   = "Item_Image";
+    public const string Player      = "Player";
 
 }
