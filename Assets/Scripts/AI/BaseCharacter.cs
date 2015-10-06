@@ -66,6 +66,7 @@ public class BaseCharacter  : MonoBehaviour
         if(other.gameObject.tag == "sword")
         {
             takeDamage(10);
+            Debug.Log("hit");
         }
 	}
 }

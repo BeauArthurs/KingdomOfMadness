@@ -17,6 +17,7 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField]
     private int _currentHp;
     private bool _canExplode = true;
+    private Animator anime;
 
     // Use this for initialization
     void Awake()
@@ -26,6 +27,7 @@ public class EnemyStateMachine : MonoBehaviour
         _targetMoveData = target.GetComponent<MovementData>();
         _myMoveData.position = transform.position;
         _currentHp = _maxHp;
+        anime = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class EnemyStateMachine : MonoBehaviour
         {
             case States.attack:
                 //attack logic
+                anime.SetBool("Attack", true);
                 if (_currentHp <= _maxHp / 2 && _canExplode)
                 {
                     Debug.Log("BOOM");
