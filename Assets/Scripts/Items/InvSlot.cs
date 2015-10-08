@@ -29,7 +29,7 @@ public class InvSlot : MonoBehaviour, IDropHandler
             // Set the id to the new one
             droppedItem.slotID = id;
         }
-        else
+        else if (droppedItem.slotID != id)
         {
             // Switch slots of items
             Transform currentItem = transform.GetChild(0);

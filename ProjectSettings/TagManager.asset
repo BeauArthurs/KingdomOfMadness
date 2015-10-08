@@ -6,6 +6,12 @@ TagManager:
   tags:
   - AI
   - Sword
+  - Inventory
+  - UIManager
+  - Name
+  - Price
+  - Image
+  - Tooltip
   layers:
   - Default
   - TransparentFX

@@ -4,23 +4,23 @@ using UnityEngine.EventSystems;
 
 // Boy Voesten
 
-// TODO:
-//  Data tooltip on hover
-
-public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
 
     public Item item;
     public int amount = 1;
     public int slotID;
 
+    private Tooltip _tooltip;
     private Transform _originalParent;
     private Inventory _inv;
     private Vector2 _offset;
+    
 
     void Start()
     {
         _inv = GameObject.FindGameObjectWithTag(TagList.Inventory).GetComponent<Inventory>();
+        _tooltip = _inv.GetComponent<Tooltip>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -58,5 +58,20 @@ public class ItemData : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             transform.position = _inv.slots[slotID].transform.position;
         }
         GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) 
+    {
+        if (item != null) 
+        {
+            _tooltip.Activate(item);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        if (item != null) 
+        {
+            _tooltip.Deactivate();
+        }
     }
 }
